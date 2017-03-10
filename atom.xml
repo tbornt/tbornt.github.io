@@ -1,93 +1,28 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
   <title>The Best Or NoThing</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="The Best Or NoThing">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="The Best Or NoThing">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="The Best Or NoThing">
   
-    <link rel="alternate" href="/atom.xml" title="The Best Or NoThing" type="application/atom+xml">
+  <link href="/atom.xml" rel="self"/>
   
+  <link href="http://yoursite.com/"/>
+  <updated>2017-03-10T02:23:03.000Z</updated>
+  <id>http://yoursite.com/</id>
   
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
-  
-
-</head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">The Best Or NoThing</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-Tensorflow的数据输入" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/03/10/Tensorflow的数据输入/" class="article-date">
-  <time datetime="2017-03-10T02:19:34.000Z" itemprop="datePublished">2017-03-10</time>
-</a>
+  <author>
+    <name>tbornt</name>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Tensorflow/">Tensorflow</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+  </author>
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/03/10/Tensorflow的数据输入/">Tensorflow的数据输入</a>
-    </h1>
+  <generator uri="http://hexo.io/">Hexo</generator>
   
-
-      </header>
+  <entry>
+    <title>Tensorflow的数据输入</title>
+    <link href="http://yoursite.com/2017/03/10/Tensorflow%E7%9A%84%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5/"/>
+    <id>http://yoursite.com/2017/03/10/Tensorflow的数据输入/</id>
+    <published>2017-03-10T02:19:34.000Z</published>
+    <updated>2017-03-10T02:23:03.000Z</updated>
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h2><p>数据和网络模型是深度学习最重要的两块内容。在图像识别领域，网络结构往往比较固定，因此数据的往往影响了最终的训练成果。拿到辛苦准备好的数据以后，怎么把数据输入到网络模型中进行训练时非常麻烦的一件事。Tensorflow作为当前最火的深度学习框架，提供了多种数据输入的方法:</p>
+    <content type="html"><![CDATA[<h2 id="引文"><a href="#引文" class="headerlink" title="引文"></a>引文</h2><p>数据和网络模型是深度学习最重要的两块内容。在图像识别领域，网络结构往往比较固定，因此数据的往往影响了最终的训练成果。拿到辛苦准备好的数据以后，怎么把数据输入到网络模型中进行训练时非常麻烦的一件事。Tensorflow作为当前最火的深度学习框架，提供了多种数据输入的方法:</p>
 <ol>
 <li>Feeding(通过python代码，在每个step提供数据。<code>placeholder</code>）</li>
 <li>Reading from files（建立一条数据通道，在tensorflow graph的开始处从文件中读取数据。）</li>
@@ -129,112 +64,21 @@
 <p>##总结</p>
 <p>Feed方法是tensorflwo初学者接触到的第一个传入数据的方法。但是传入效率往往不高，在数据集比较大的情况下往往不是很合适。Pipeline方法涉及到多线程，tensorflow在幕后做了很多工作，因此比较难以理解。但是性能上会有明显的提升。本文中将Reader和Decoder的介绍做了简化。其实配合tensorflow的数据格式<a href="https://www.tensorflow.org/api_guides/python/python_io#tfrecords_format_details" target="_blank" rel="external">TFRecords</a>，数据传入工作将会更加简化。</p>
 <p>##参考<br><a href="https://www.tensorflow.org/programmers_guide/reading_data" target="_blank" rel="external">https://www.tensorflow.org/programmers_guide/reading_data</a><br><a href="https://indico.io/blog/tensorflow-data-inputs-part1-placeholders-protobufs-queues/" target="_blank" rel="external">https://indico.io/blog/tensorflow-data-inputs-part1-placeholders-protobufs-queues/</a><br><a href="https://blog.metaflow.fr/tensorflow-how-to-optimise-your-input-pipeline-with-queues-and-multi-threading-e7c3874157e0#.cjzlw0297" target="_blank" rel="external">https://blog.metaflow.fr/tensorflow-how-to-optimise-your-input-pipeline-with-queues-and-multi-threading-e7c3874157e0#.cjzlw0297</a><br><a href="https://www.tensorflow.org/programmers_guide/threading_and_queues" target="_blank" rel="external">https://www.tensorflow.org/programmers_guide/threading_and_queues</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/03/10/Tensorflow的数据输入/" data-id="cj037ccwj00005or2kmpq4rjr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Coding/">Coding</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-</section>
-        
-          <aside id="sidebar">
-  
+]]></content>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Tensorflow/">Tensorflow</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    <summary type="html">
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Coding/">Coding</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/">Tensorflow</a></li></ul>
-    </div>
-  </div>
-
-
-  
+      &lt;h2 id=&quot;引文&quot;&gt;&lt;a href=&quot;#引文&quot; class=&quot;headerlink&quot; title=&quot;引文&quot;&gt;&lt;/a&gt;引文&lt;/h2&gt;&lt;p&gt;数据和网络模型是深度学习最重要的两块内容。在图像识别领域，网络结构往往比较固定，因此数据的往往影响了最终的训练成果。拿到辛苦准备好的数据以后
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Coding/" style="font-size: 10px;">Coding</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a>
-    </div>
-  </div>
-
-  
+    </summary>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li></ul>
-    </div>
-  </div>
-
-
-  
+      <category term="Tensorflow" scheme="http://yoursite.com/categories/Tensorflow/"/>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/03/10/Tensorflow的数据输入/">Tensorflow的数据输入</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 tbornt<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
-</body>
-</html>
+      <category term="Tensorflow" scheme="http://yoursite.com/tags/Tensorflow/"/>
+    
+      <category term="Coding" scheme="http://yoursite.com/tags/Coding/"/>
+    
+  </entry>
+  
+</feed>
